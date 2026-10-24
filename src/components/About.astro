@@ -4,18 +4,18 @@ import { about, personal } from '../data/portfolio';
 const principles = [
   {
     number: '01',
-    title: 'End-to-End Execution',
-    description: 'Taking projects from raw data cleaning and feature engineering through model evaluation and live deployment.',
+    title: 'Mathematical Rigor & Empirical Validation',
+    description: 'Grounding every architecture in statistical validity — using silhouette analysis, PCA variance retention, and cross-validation to guarantee generalization beyond training datasets.',
   },
   {
     number: '02',
-    title: 'Statistical Rigor',
-    description: 'Validating machine learning choices with solid metrics — Silhouette scores, Elbow method, and confusion matrices.',
+    title: 'Full-Lifecycle ML Pipeline Engineering',
+    description: 'Architecting robust pipelines from raw data ingestion, feature stores, and vector embeddings through automated training, hyperparameter tuning, and containerized serving.',
   },
   {
     number: '03',
-    title: 'User-Facing Applications',
-    description: 'Bridging algorithmic models to accessible, interactive web interfaces using Python, Streamlit, and Flask.',
+    title: 'Production Intelligence & Low-Latency Systems',
+    description: 'Bridging algorithmic models with production REST APIs and responsive user interfaces (FastAPI, Streamlit, Flask) to deliver real-time, interpretable AI experiences.',
   },
 ];
 ---
@@ -23,7 +23,7 @@ const principles = [
 <section id="about" class="ui-section bg-[#faf7f2] relative z-[1]">
   <div class="ui-container">
     <!-- Section label -->
-    <p class="section-label mb-4" data-reveal>About</p>
+    <p class="section-label mb-4" data-reveal>Engineering Philosophy</p>
 
     <!-- Two-column editorial grid -->
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 xl:gap-20">
@@ -35,7 +35,7 @@ const principles = [
             {about.heading}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-brand-dark/70" data-reveal data-delay="2">
-            A disciplined engineering approach to data science and machine learning problems.
+            {about.subheading}
           </p>
         </div>
 
@@ -77,27 +77,27 @@ const principles = [
         <!-- Divider -->
         <hr class="divider" />
 
-        <!-- Info panel -->
-        <div class="grid grid-cols-2 gap-6 sm:grid-cols-2 rounded-xl bg-surface p-6 border border-brand-dark/10">
+        <!-- Info panel: Professional AI/ML Engineer profile -->
+        <div class="grid grid-cols-2 gap-6 rounded-xl bg-surface p-6 border border-brand-dark/10">
           <div class="flex flex-col gap-1">
-            <p class="section-label">Degree</p>
-            <p class="text-sm font-semibold text-brand-dark">B.Tech — CSE</p>
-            <p class="text-xs text-brand-dark/50">2023 – 2027</p>
+            <p class="section-label">Engineering Role</p>
+            <p class="text-sm font-semibold text-brand-dark">AI & Machine Learning Engineer</p>
+            <p class="text-xs text-brand-dark/50">Predictive Systems & Pipelines</p>
           </div>
           <div class="flex flex-col gap-1">
-            <p class="section-label">Academic CGPA</p>
-            <p class="text-sm font-semibold text-brand-dark">8.48 / 10</p>
-            <p class="text-xs text-brand-dark/50">Undergraduate</p>
+            <p class="section-label">Core Specializations</p>
+            <p class="text-sm font-semibold text-brand-dark">CV, NLP & Clustering</p>
+            <p class="text-xs text-brand-dark/50">Multimodal Biometrics & RAG</p>
           </div>
           <div class="flex flex-col gap-1">
-            <p class="section-label">Location</p>
+            <p class="section-label">Location & Availability</p>
             <p class="text-sm font-semibold text-brand-dark">{personal.location}</p>
-            <p class="text-xs text-brand-dark/50">Open to remote / relocation</p>
+            <p class="text-xs text-brand-dark/50">Open to Remote & Global Teams</p>
           </div>
           <div class="flex flex-col gap-1">
-            <p class="section-label">Focus Areas</p>
+            <p class="section-label">Primary Stack</p>
             <div class="flex flex-wrap gap-1.5 pt-0.5">
-              {about.interests.map((interest) => (
+              {about.interests.slice(0, 4).map((interest) => (
                 <span class="tech-tag text-[0.65rem]">{interest}</span>
               ))}
             </div>

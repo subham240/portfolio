@@ -15,10 +15,11 @@ export const personal = {
 } as const;
 
 export const about = {
-  heading: 'A little about my work',
-  bio: `Computer Science undergraduate building a strong, practical foundation in Data Science and Machine Learning — from data cleaning and feature engineering through model building, evaluation, and deployment. Comfortable working across classification, clustering, and NLP problems, and translating analysis into working applications using Python, Scikit-learn, PyTorch, Flask, and Streamlit.`,
-  bio2: `Interested in understanding how data-driven systems are built end-to-end and growing further as a Data Science or Machine Learning Engineer.`,
-  interests: ['Data Science', 'Machine Learning', 'NLP', 'AI Applications'],
+  heading: 'Architecting Intelligent Systems',
+  subheading: 'Bridging statistical rigor and scalable production machine learning.',
+  bio: `As an AI & Machine Learning Engineer, I specialize in the end-to-end design, development, and deployment of resilient data-driven applications. My engineering philosophy centers on translating complex, unstructured data—from clinical diagnostic documents and multimodal biometrics to high-dimensional customer feature spaces—into robust, mathematically verified models.`,
+  bio2: `I approach machine learning with an end-to-end engineering discipline: principled data preprocessing, robust feature pipelines, disciplined metric validation (Elbow Method, Silhouette Analysis, PCA variance retention), and low-latency serving infrastructure. Rather than treating models as isolated academic experiments, I build production-grade AI systems engineered for real-world reliability, interpretability, and seamless user experience.`,
+  interests: ['Machine Learning Systems', 'Computer Vision', 'Natural Language Processing', 'Deep Learning', 'Statistical Modeling', 'MLOps & Deployment'],
 } as const;
 
 export interface Project {
@@ -55,6 +56,7 @@ export const projects: Project[] = [
       'Designed and built an AI-powered attendance platform using computer vision to recognize students from a class photo, together with voice biometrics for sequential roll-call verification. Implemented QR-based course enrollment and a real-time teacher dashboard.',
     technologies: ['Python', 'Computer Vision', 'FaceRecognition', 'Dlib', 'Resemblyzer', 'Librosa', 'Streamlit', 'Flask', 'Supabase'],
     liveUrl: 'https://snapclass-landing-hazel.vercel.app/',
+    repoUrl: 'https://github.com/subham240/snapclass-app',
     imageAlt: 'SnapClass — AI attendance system interface',
   },
   {
@@ -66,6 +68,7 @@ export const projects: Project[] = [
       'Built and deployed an interactive tool that segments e-commerce customers into actionable groups using RFM feature engineering and K-Means clustering, validated with the Elbow Method and Silhouette Score. Applied PCA while retaining over 90% of variance to improve cluster interpretability in a live, user-facing Streamlit application.',
     technologies: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'K-Means Clustering', 'RFM Analysis', 'PCA', 'Streamlit'],
     liveUrl: 'https://smartcart-segmentation-zuxhyiwtapkld2vhnutyue.streamlit.app/',
+    repoUrl: 'https://github.com/subham240/smartcart-segmentation',
     imageAlt: 'Customer Segmentation — clustering visualization dashboard',
   },
 ];
