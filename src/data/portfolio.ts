@@ -17,8 +17,8 @@ export const personal = {
 export const about = {
   heading: 'Architecting Intelligent Systems',
   subheading: 'Bridging statistical rigor and scalable production machine learning.',
-  bio: `As an AI & Machine Learning Engineer, I specialize in the end-to-end design, development, and deployment of resilient data-driven applications. My engineering philosophy centers on translating complex, unstructured data—from clinical diagnostic documents and multimodal biometrics to high-dimensional customer feature spaces—into robust, mathematically verified models.`,
-  bio2: `I approach machine learning with an end-to-end engineering discipline: principled data preprocessing, robust feature pipelines, disciplined metric validation (Elbow Method, Silhouette Analysis, PCA variance retention), and low-latency serving infrastructure. Rather than treating models as isolated academic experiments, I build production-grade AI systems engineered for real-world reliability, interpretability, and seamless user experience.`,
+  bio: `I am an AI & Machine Learning Engineer focused on designing, validating, and deploying end-to-end intelligent applications.`,
+  bio2: `From multimodal biometrics and document intelligence to predictive customer segmentation, I combine robust feature pipelines with clean serving interfaces to build models that are accurate, interpretable, and production-ready.`,
   interests: ['Machine Learning Systems', 'Computer Vision', 'Natural Language Processing', 'Deep Learning', 'Statistical Modeling', 'MLOps & Deployment'],
 } as const;
 
