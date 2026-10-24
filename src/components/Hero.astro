@@ -61,7 +61,7 @@ import { personal } from '../data/portfolio';
               <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-y-0.5">&darr;</span>
             </a>
             <a
-              href="/documents/resume.pdf"
+              href={personal.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="btn-outline text-sm sm:text-base h-12 px-6 inline-flex items-center gap-2"
@@ -118,7 +118,7 @@ import { personal } from '../data/portfolio';
         <div class="relative w-full max-w-[28rem] overflow-hidden rounded-2xl md:rounded-[2rem] border border-brand-dark/10 bg-surface shadow-xl hero-image-mask">
           <figure class="relative aspect-[4/5] w-full overflow-hidden">
             <img
-              src="/images/subham.jpg"
+              src="/portfolio/images/subham.jpg"
               alt="Subham Acharya — AI & ML Engineer"
               class="h-full w-full object-cover object-top hero-image-zoom transition-transform duration-[1400ms] ease-out hover:scale-[1.03]"
               width="600"

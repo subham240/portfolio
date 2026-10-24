@@ -11,7 +11,7 @@ export const personal = {
   github: 'https://github.com/subham240',
   location: 'Odisha, India',
   resumeAvailable: true,
-  resumeUrl: '/documents/resume.pdf',
+  resumeUrl: '/portfolio/documents/resume.pdf',
 } as const;
 
 export const about = {
