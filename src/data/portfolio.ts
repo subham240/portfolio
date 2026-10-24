@@ -2,9 +2,9 @@
 
 export const personal = {
   name: 'Subham Acharya',
-  role: 'Data Science & Machine Learning',
+  role: 'AI & ML Engineer',
   tagline: 'Turning data into intelligent applications.',
-  intro: "I'm a Computer Science undergraduate building practical skills in data science, machine learning, and AI-powered application development. I enjoy taking ideas from data preprocessing and model building through evaluation and deployment.",
+  intro: "I engineer intelligent systems, deep learning architectures, and scalable machine learning applications. I specialize in taking models from mathematical foundations through rigorous validation to production deployment.",
   email: 'subhamacharya731@gmail.com',
   phone: '+91-6371830731',
   linkedin: 'https://linkedin.com/in/subham-acharya-783222324',
@@ -169,23 +169,23 @@ export const exposures = [
 export const focusAreas = [
   {
     number: '01',
-    title: 'Data Science',
-    description: 'Exploring, cleaning, analyzing, and interpreting data to identify useful patterns and extract meaningful insights.',
+    title: 'Machine Learning Engineering',
+    description: 'Designing resilient training pipelines, feature stores, and predictive models evaluated with statistical rigor and cross-validation.',
   },
   {
     number: '02',
-    title: 'Machine Learning',
-    description: 'Building classification and clustering workflows, engineering features, evaluating models, and experimenting with predictive systems.',
+    title: 'Deep Learning & Computer Vision',
+    description: 'Architecting neural networks, facial recognition pipelines, and voice biometric verification systems for real-world scenarios.',
   },
   {
     number: '03',
-    title: 'AI-Powered Applications',
-    description: 'Integrating machine learning and AI capabilities into practical applications and user-facing tools.',
+    title: 'AI-Powered Applications & RAG',
+    description: 'Integrating machine intelligence into practical user-facing tools with document parsing, semantic search, and grounded retrieval.',
   },
   {
     number: '04',
-    title: 'Software Development',
-    description: 'Building useful interfaces and applications that connect technical models with real user workflows.',
+    title: 'MLOps & Production Systems',
+    description: 'Building low-latency APIs (FastAPI/Flask), containerized serving workflows, and automated CI/CD deployment pipelines.',
   },
 ] as const;
 
@@ -200,7 +200,7 @@ export const faqs = [
   {
     question: 'What areas of technology do I focus on?',
     answer:
-      'I focus on Data Science, Machine Learning, and building AI-powered applications. My work spans data preprocessing and feature engineering, training classification and clustering models, applying NLP techniques, and deploying interactive applications with Streamlit and Flask.',
+      'I focus on AI and Machine Learning engineering. My work spans predictive modeling, deep learning architectures, computer vision, natural language processing, and deploying production-grade applications with Streamlit, FastAPI, and Flask.',
   },
   {
     question: 'What projects have I built?',
