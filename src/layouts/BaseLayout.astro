@@ -1,0 +1,172 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { personal } from '../data/portfolio';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${personal.name} | ${personal.role}`,
+  description = `Personal portfolio of ${personal.name} — Computer Science undergraduate specialising in Data Science, Machine Learning, and AI-powered application development.`,
+} = Astro.props;
+
+const canonicalURL = Astro.url;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Unified Animation & Interaction Engine -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Hero Entrance trigger
+        requestAnimationFrame(() => {
+          document.body.classList.add('hero-loaded');
+        });
+
+        // 2. Scroll Reveals (one-time execution, no replaying)
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        document.querySelectorAll('[data-reveal], .timeline-line-animated').forEach((el) => {
+          revealObserver.observe(el);
+        });
+
+        // 3. Active Nav Section Observer
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (sections.length && navLinks.length) {
+          const sectionObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const currentId = entry.target.getAttribute('id');
+                  navLinks.forEach((link) => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentId}`) {
+                      link.classList.add('active');
+                    } else {
+                      link.classList.remove('active');
+                    }
+                  });
+                }
+              });
+            },
+            { threshold: 0.25, rootMargin: '-20% 0px -50% 0px' }
+          );
+          sections.forEach((section) => sectionObserver.observe(section));
+        }
+
+        // 4. Custom Cursor for Project Showcase
+        const cursor = document.getElementById('custom-cursor');
+        const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (cursor && isFinePointer && !prefersReducedMotion) {
+          let mouseX = -100;
+          let mouseY = -100;
+          let currentX = -100;
+          let currentY = -100;
+          let isHoveringTarget = false;
+
+          window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+          }, { passive: true });
+
+          // Smooth lerp animation loop
+          const renderCursor = () => {
+            currentX += (mouseX - currentX) * 0.18;
+            currentY += (mouseY - currentY) * 0.18;
+            cursor.style.transform = `translate3d(${currentX + 16}px, ${currentY + 16}px, 0)`;
+            requestAnimationFrame(renderCursor);
+          };
+          requestAnimationFrame(renderCursor);
+
+          // Attach hover targets
+          const updateCursorTargets = () => {
+            document.querySelectorAll('[data-cursor-target]').forEach((el) => {
+              el.addEventListener('mouseenter', () => {
+                isHoveringTarget = true;
+                cursor.classList.add('active');
+                const label = el.getAttribute('data-cursor-label') || 'Explore ↗';
+                cursor.querySelector('span').textContent = label;
+              });
+              el.addEventListener('mouseleave', () => {
+                isHoveringTarget = false;
+                cursor.classList.remove('active');
+              });
+            });
+          };
+          updateCursorTargets();
+        }
+
+        // 5. Back to top
+        const btt = document.getElementById('back-to-top');
+        if (btt) {
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) btt.classList.add('visible');
+            else btt.classList.remove('visible');
+          }, { passive: true });
+          btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        }
+      });
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#faf7f2] text-brand-dark antialiased">
+    <!-- Custom interactive cursor pill for project showcases -->
+    <div id="custom-cursor" aria-hidden="true">
+      <span>Explore ↗</span>
+    </div>
+
+    <Navbar />
+    <main id="main-content" class="flex-1 flex flex-col">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </body>
+</html>

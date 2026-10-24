@@ -1,0 +1,44 @@
+---
+import { certifications } from '../data/portfolio';
+
+const icons = [
+  // Oracle icon (cloud)
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+  // AI/Brain icon
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4"/><path d="M12 10v4M8 14h8"/><path d="M6 22V18a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/></svg>`,
+  // IoT icon
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M7.76 7.76a6 6 0 0 0 0 8.49"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49"/></svg>`,
+];
+---
+
+<section id="certifications" class="ui-section bg-surface">
+  <div class="ui-container">
+    <div class="mb-12">
+      <p class="section-label mb-3" data-reveal>Credentials</p>
+      <h2 class="section-heading" data-reveal data-delay="1">Certifications</h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {certifications.map((cert, i) => (
+        <div
+          class="group flex flex-col gap-4 rounded-xl border border-brand-dark/10 bg-[#faf7f2] p-6 transition-all duration-300 hover:border-brand-accent/30 hover:shadow-md hover:-translate-y-0.5 card-hover"
+          data-reveal
+          data-delay={String((i % 3) + 1)}
+        >
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-dark text-brand-accent transition-colors duration-300 group-hover:bg-brand-accent group-hover:text-brand-dark">
+            <Fragment set:html={icons[i % icons.length]} />
+          </div>
+          <div class="flex flex-col gap-1">
+            <h3 class="font-heading text-base font-bold leading-snug text-brand-dark">
+              {cert.title}
+            </h3>
+            <p class="text-sm text-brand-dark/60">{cert.issuer}</p>
+          </div>
+          <div class="mt-auto">
+            <span class="section-label">{cert.year}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

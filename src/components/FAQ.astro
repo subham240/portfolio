@@ -1,0 +1,42 @@
+---
+import { faqs } from '../data/portfolio';
+---
+
+<section id="faq" class="ui-section bg-[#faf7f2]">
+  <div class="ui-container">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+
+      <!-- Left -->
+      <div>
+        <p class="section-label mb-3" data-reveal>FAQ</p>
+        <h2 class="section-heading" data-reveal data-delay="1">Common questions</h2>
+        <p class="mt-5 text-sm leading-relaxed text-brand-dark/60" data-reveal data-delay="2">
+          Quick answers about my background, skills, and how to get in touch.
+        </p>
+      </div>
+
+      <!-- Right: accordion -->
+      <div class="flex flex-col divide-y divide-brand-dark/10" data-reveal data-delay="2">
+        {faqs.map((faq, i) => (
+          <div class="faq-item py-5">
+            <details class="group">
+              <summary
+                class="flex cursor-pointer list-none items-start justify-between gap-4 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-4 rounded"
+                tabindex="0"
+              >
+                <h3 class="font-heading text-base font-semibold text-brand-dark transition-colors duration-200 group-open:text-brand-accent md:text-lg">
+                  {faq.question}
+                </h3>
+              </summary>
+              <div class="mt-4 pr-8">
+                <p class="text-sm leading-relaxed text-brand-dark/70">
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+import { education } from '../data/portfolio';
+---
+
+<section id="education" class="ui-section bg-[#faf7f2] relative z-[1]">
+  <div class="ui-container">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+
+      <!-- Left: heading -->
+      <div>
+        <p class="section-label mb-3" data-reveal>Education</p>
+        <h2 class="section-heading" data-reveal data-delay="1">
+          Academic background
+        </h2>
+        <p class="mt-5 text-sm sm:text-base leading-relaxed text-brand-dark/70" data-reveal data-delay="2">
+          Building a rigorous foundation in computer science with a focus on practical, applied machine learning.
+        </p>
+      </div>
+
+      <!-- Right: animated timeline -->
+      <div class="relative flex flex-col gap-0" data-reveal data-delay="2">
+        <!-- Animated vertical timeline line -->
+        <div
+          class="timeline-line-animated absolute left-[7px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-brand-accent via-brand-dark/25 to-brand-dark/10 hidden sm:block"
+          aria-hidden="true"
+        ></div>
+
+        {education.map((edu, i) => (
+          <div
+            class="relative flex gap-6 pb-10 last:pb-0"
+            data-reveal
+            data-delay={String(i + 2)}
+          >
+            <!-- Dot with pulse on B.Tech -->
+            <div class="hidden sm:flex flex-col items-center">
+              <div
+                class={`mt-1.5 h-4 w-4 flex-shrink-0 rounded-full border-2 z-10 transition-transform duration-300 hover:scale-125 ${
+                  i === 0
+                    ? 'border-brand-accent bg-brand-accent ring-4 ring-brand-accent/20'
+                    : 'border-brand-dark/30 bg-[#faf7f2]'
+                }`}
+                aria-hidden="true"
+              ></div>
+            </div>
+
+            <!-- Content card -->
+            <div
+              class={`flex-1 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+                i === 0
+                  ? 'bg-brand-dark text-brand-light shadow-md'
+                  : 'bg-surface border border-brand-dark/10'
+              }`}
+            >
+              <div class="flex flex-wrap items-start justify-between gap-4">
+                <div class="flex flex-col gap-1">
+                  <p class={`text-xs font-semibold uppercase tracking-[0.14em] ${i === 0 ? 'text-brand-accent' : 'text-brand-accent'}`}>
+                    {edu.duration}
+                  </p>
+                  <h3 class={`font-heading text-lg sm:text-xl font-bold leading-snug ${i === 0 ? 'text-brand-light' : 'text-brand-dark'}`}>
+                    {edu.degree}
+                  </h3>
+                  <p class={`text-sm ${i === 0 ? 'text-brand-light/70' : 'text-brand-dark/70'}`}>
+                    {edu.institution}
+                  </p>
+                </div>
+                <div class={`rounded-xl px-4 py-2.5 text-right ${i === 0 ? 'bg-brand-light/10 border border-brand-light/10' : 'bg-brand-dark/5 border border-brand-dark/5'}`}>
+                  <p class={`font-heading text-lg sm:text-xl font-bold ${i === 0 ? 'text-brand-accent' : 'text-brand-dark'}`}>
+                    {edu.grade}
+                  </p>
+                  <p class={`text-[0.65rem] uppercase tracking-wider ${i === 0 ? 'text-brand-light/50' : 'text-brand-dark/50'}`}>
+                    Performance
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

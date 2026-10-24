@@ -1,0 +1,45 @@
+---
+import { skillGroups } from '../data/portfolio';
+---
+
+<section id="skills" class="ui-section bg-surface relative z-[1]">
+  <div class="ui-container">
+    <!-- Header -->
+    <div class="mb-14">
+      <p class="section-label mb-3" data-reveal>Technical Skills</p>
+      <h2 class="section-heading max-w-2xl" data-reveal data-delay="1">
+        Tools and technologies I work with
+      </h2>
+    </div>
+
+    <!-- Skills grid -->
+    <div class="grid grid-cols-1 gap-px bg-brand-dark/10 border border-brand-dark/10 rounded-2xl overflow-hidden sm:grid-cols-2 lg:grid-cols-3">
+      {skillGroups.map((group, i) => (
+        <div
+          class="flex flex-col gap-5 bg-[#faf7f2] p-7 transition-all duration-300 hover:bg-amber-50/70 hover:shadow-sm"
+          data-reveal
+          data-delay={String((i % 3) + 1)}
+        >
+          <div class="flex items-center gap-3">
+            <span class="h-px flex-1 bg-brand-dark/10" aria-hidden="true"></span>
+            <p class="section-label text-brand-accent whitespace-nowrap">{group.label}</p>
+          </div>
+          <ul class="flex flex-wrap gap-2" role="list" aria-label={`${group.label} skills`}>
+            {group.skills.map((skill) => (
+              <li>
+                <span class="tech-tag cursor-default">
+                  {skill}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note -->
+    <p class="mt-8 text-xs text-brand-dark/45 italic" data-reveal data-delay="4">
+      Skills listed reflect hands-on learning and project experience &mdash; not claimed expertise levels.
+    </p>
+  </div>
+</section>

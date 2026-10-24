@@ -1,0 +1,44 @@
+---
+import { process } from '../data/portfolio';
+---
+
+<section id="process" class="ui-section bg-brand-dark text-brand-light relative z-[1]">
+  <div class="ui-container">
+    <!-- Header -->
+    <div class="mb-14">
+      <p class="section-label mb-3 text-brand-accent" data-reveal>How I Build</p>
+      <h2 class="font-heading text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.05] tracking-[-0.02em] text-brand-light" data-reveal data-delay="1">
+        My process
+      </h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 divide-y divide-brand-light/10 md:grid-cols-4 md:divide-x md:divide-y-0">
+      {process.map((step, i) => (
+        <div
+          class="group flex flex-col gap-6 py-10 md:py-0 md:px-8 md:first:pl-0 md:last:pr-0 transition-transform duration-300 hover:-translate-y-1"
+          data-reveal
+          data-delay={String(i + 1)}
+        >
+          <!-- Step number with subtle hover glow -->
+          <span class="font-heading text-[clamp(3rem,5vw,4.5rem)] font-bold leading-none text-brand-light/10 select-none transition-colors duration-300 group-hover:text-brand-accent/30">
+            {step.step}
+          </span>
+
+          <!-- Animated Expanding Accent Line -->
+          <div class="h-0.5 w-8 bg-brand-accent transition-all duration-500 ease-out group-hover:w-16"></div>
+
+          <!-- Title + desc -->
+          <div class="flex flex-col gap-3">
+            <h3 class="font-heading text-xl font-bold text-brand-light transition-colors duration-300 group-hover:text-brand-accent">
+              {step.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-brand-light/65">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

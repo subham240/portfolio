@@ -1,0 +1,50 @@
+---
+import { exposures } from '../data/portfolio';
+---
+
+<section id="exposure" class="ui-section bg-surface relative z-[1]">
+  <div class="ui-container">
+    <div class="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+      <div>
+        <p class="section-label mb-3" data-reveal>Beyond the Projects</p>
+        <h2 class="section-heading" data-reveal data-delay="1">Technical exposure</h2>
+      </div>
+      <p class="text-sm leading-relaxed text-brand-dark/70" data-reveal data-delay="2">
+        Hackathons, seminars, and technical events that have shaped how I think about building, rapid MVP iteration, and learning.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {exposures.map((item, i) => (
+        <div
+          class={`group flex flex-col gap-4 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+            i === 0
+              ? 'bg-brand-dark text-brand-light shadow-md'
+              : 'bg-[#faf7f2] border border-brand-dark/10 hover:border-brand-accent/40'
+          }`}
+          data-reveal
+          data-delay={String((i % 2) + 1)}
+        >
+          <!-- Type badge -->
+          <span class="w-fit section-label text-brand-accent">
+            {item.type === 'hackathon' ? 'Hackathon' : 'Seminar'}
+          </span>
+
+          <!-- Title -->
+          <h3 class={`font-heading text-lg font-bold leading-snug transition-colors duration-200 group-hover:text-brand-accent ${
+            i === 0 ? 'text-brand-light' : 'text-brand-dark'
+          }`}>
+            {item.title}
+          </h3>
+
+          <!-- Description -->
+          <p class={`text-sm leading-relaxed ${
+            i === 0 ? 'text-brand-light/70' : 'text-brand-dark/70'
+          }`}>
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

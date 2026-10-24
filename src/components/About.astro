@@ -1,0 +1,133 @@
+---
+import { about, personal } from '../data/portfolio';
+
+const principles = [
+  {
+    number: '01',
+    title: 'End-to-End Execution',
+    description: 'Taking projects from raw data cleaning and feature engineering through model evaluation and live deployment.',
+  },
+  {
+    number: '02',
+    title: 'Statistical Rigor',
+    description: 'Validating machine learning choices with solid metrics — Silhouette scores, Elbow method, and confusion matrices.',
+  },
+  {
+    number: '03',
+    title: 'User-Facing Applications',
+    description: 'Bridging algorithmic models to accessible, interactive web interfaces using Python, Streamlit, and Flask.',
+  },
+];
+---
+
+<section id="about" class="ui-section bg-[#faf7f2] relative z-[1]">
+  <div class="ui-container">
+    <!-- Section label -->
+    <p class="section-label mb-4" data-reveal>About</p>
+
+    <!-- Two-column editorial grid -->
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 xl:gap-20">
+
+      <!-- Left: Heading + editorial cards -->
+      <div class="flex flex-col gap-8">
+        <div>
+          <h2 class="section-heading text-balance" data-reveal data-delay="1">
+            {about.heading}
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-brand-dark/70" data-reveal data-delay="2">
+            A disciplined engineering approach to data science and machine learning problems.
+          </p>
+        </div>
+
+        <!-- Principles cards list -->
+        <div class="flex flex-col gap-4">
+          {principles.map((item, pIdx) => (
+            <div
+              class="group flex items-start gap-4 rounded-xl border border-brand-dark/10 bg-surface p-5 transition-all duration-300 hover:border-brand-accent/40 hover:bg-amber-50/50 hover:-translate-y-0.5 hover:shadow-sm"
+              data-reveal
+              data-delay={String(pIdx + 2)}
+            >
+              <span class="font-heading text-xl font-bold text-brand-accent transition-colors group-hover:text-brand-dark">
+                {item.number}
+              </span>
+              <div class="flex flex-col gap-1">
+                <h3 class="font-heading text-base font-bold text-brand-dark">
+                  {item.title}
+                </h3>
+                <p class="text-xs leading-relaxed text-brand-dark/70">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Detailed bio + info panel -->
+      <div class="flex flex-col justify-between gap-8" data-reveal data-delay="2">
+        <div class="flex flex-col gap-5">
+          <p class="text-[clamp(1.05rem,1.4vw,1.2rem)] leading-relaxed text-brand-dark/85 font-medium">
+            {about.bio}
+          </p>
+          <p class="text-base leading-relaxed text-brand-dark/75">
+            {about.bio2}
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <hr class="divider" />
+
+        <!-- Info panel -->
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-2 rounded-xl bg-surface p-6 border border-brand-dark/10">
+          <div class="flex flex-col gap-1">
+            <p class="section-label">Degree</p>
+            <p class="text-sm font-semibold text-brand-dark">B.Tech — CSE</p>
+            <p class="text-xs text-brand-dark/50">2023 – 2027</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="section-label">Academic CGPA</p>
+            <p class="text-sm font-semibold text-brand-dark">8.48 / 10</p>
+            <p class="text-xs text-brand-dark/50">Undergraduate</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="section-label">Location</p>
+            <p class="text-sm font-semibold text-brand-dark">{personal.location}</p>
+            <p class="text-xs text-brand-dark/50">Open to remote / relocation</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="section-label">Focus Areas</p>
+            <div class="flex flex-wrap gap-1.5 pt-0.5">
+              {about.interests.map((interest) => (
+                <span class="tech-tag text-[0.65rem]">{interest}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA row -->
+        <div class="flex flex-wrap items-center gap-3.5 pt-1">
+          <a href="#projects" class="btn-primary text-sm">
+            <span>Explore Projects</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a
+            href="/documents/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline text-sm inline-flex items-center gap-2"
+            title="Download Subham Acharya's Resume (PDF)"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Resume</span>
+          </a>
+          <a
+            href={`mailto:${personal.email}`}
+            class="text-sm font-semibold text-brand-dark underline underline-offset-4 transition-colors hover:text-brand-accent"
+          >
+            {personal.email}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
