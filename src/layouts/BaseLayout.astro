@@ -1,3 +1,4 @@
+
 ---
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
@@ -42,8 +43,8 @@ const canonicalURL = Astro.url;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <!-- Favicon: Vercel root deployment -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Unified Animation & Interaction Engine -->
     <script is:inline>
@@ -53,7 +54,7 @@ const canonicalURL = Astro.url;
           document.body.classList.add('hero-loaded');
         });
 
-        // 2. Scroll Reveals (one-time execution, no replaying)
+        // 2. Scroll Reveals
         const revealObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -73,7 +74,7 @@ const canonicalURL = Astro.url;
         // 3. Active Nav Section Observer
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         if (sections.length && navLinks.length) {
           const sectionObserver = new IntersectionObserver(
             (entries) => {
@@ -93,10 +94,11 @@ const canonicalURL = Astro.url;
             },
             { threshold: 0.25, rootMargin: '-20% 0px -50% 0px' }
           );
+
           sections.forEach((section) => sectionObserver.observe(section));
         }
 
-        // 4. Custom Cursor for Project Showcase
+        // 4. Custom Cursor
         const cursor = document.getElementById('custom-cursor');
         const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -106,67 +108,79 @@ const canonicalURL = Astro.url;
           let mouseY = -100;
           let currentX = -100;
           let currentY = -100;
-          let isHoveringTarget = false;
 
           window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
           }, { passive: true });
 
-          // Smooth lerp animation loop
           const renderCursor = () => {
             currentX += (mouseX - currentX) * 0.18;
             currentY += (mouseY - currentY) * 0.18;
             cursor.style.transform = `translate3d(${currentX + 16}px, ${currentY + 16}px, 0)`;
             requestAnimationFrame(renderCursor);
           };
+
           requestAnimationFrame(renderCursor);
 
-          // Attach hover targets
-          const updateCursorTargets = () => {
-            document.querySelectorAll('[data-cursor-target]').forEach((el) => {
-              el.addEventListener('mouseenter', () => {
-                isHoveringTarget = true;
-                cursor.classList.add('active');
-                const label = el.getAttribute('data-cursor-label') || 'Explore ↗';
-                cursor.querySelector('span').textContent = label;
-              });
-              el.addEventListener('mouseleave', () => {
-                isHoveringTarget = false;
-                cursor.classList.remove('active');
-              });
+          document.querySelectorAll('[data-cursor-target]').forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+              cursor.classList.add('active');
+              const label = el.getAttribute('data-cursor-label') || 'Explore ↗';
+              const span = cursor.querySelector('span');
+              if (span) span.textContent = label;
             });
-          };
-          updateCursorTargets();
+
+            el.addEventListener('mouseleave', () => {
+              cursor.classList.remove('active');
+            });
+          });
         }
 
         // 5. Back to top
         const btt = document.getElementById('back-to-top');
+
         if (btt) {
           window.addEventListener('scroll', () => {
             if (window.scrollY > 500) btt.classList.add('visible');
             else btt.classList.remove('visible');
           }, { passive: true });
-          btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+          btt.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
         }
       });
     </script>
   </head>
+
   <body class="min-h-screen flex flex-col bg-[#faf7f2] text-brand-dark antialiased">
-    <!-- Custom interactive cursor pill for project showcases -->
     <div id="custom-cursor" aria-hidden="true">
       <span>Explore ↗</span>
     </div>
 
     <Navbar />
+
     <main id="main-content" class="flex-1 flex flex-col">
       <slot />
     </main>
+
     <Footer />
 
-    <!-- Back to top -->
     <button id="back-to-top" aria-label="Back to top" title="Back to top">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
     </button>
   </body>
 </html>
