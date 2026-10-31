@@ -200,6 +200,16 @@ export const certifications = [
     issuer: 'Oracle',
     year: '2026',
   },
+  {
+    title: 'Generative AI and Cloud Computing Virtual Internship',
+    issuer: 'AICTE – IBM',
+    year: '2026',
+  },
+  {
+    title: 'IoT & Entrepreneurship-cum-Skill Development Program',
+    issuer: 'Ministry of MSME, Government of India',
+    year: '2026',
+  },
 ] as const;
 
 export const exposures = [
