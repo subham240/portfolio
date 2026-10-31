@@ -198,7 +198,7 @@ export const certifications = [
   {
     title: 'Oracle Cloud Infrastructure (OCI) AI Foundations Associate',
     issuer: 'Oracle',
-    year: '2025',
+    year: '2026',
   },
 ] as const;
 
