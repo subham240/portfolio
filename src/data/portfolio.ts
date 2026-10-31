@@ -5,7 +5,7 @@ export const personal = {
   name: 'Subham Acharya',
   role: 'AI & ML Engineer',
   tagline: 'Turning data into intelligent applications.',
-  intro: "I engineer intelligent systems, deep learning architectures, and scalable machine learning applications. I specialize in taking models from mathematical foundations through rigorous validation to production deployment.",
+  intro: "I engineer intelligent systems, deep learning architectures, and scalable machine learning applications. I specialize in taking models from mathematical foundations through rigorous validation and production deployment.",
   email: 'subhamacharya731@gmail.com',
   phone: '+91-6371830731',
   linkedin: 'https://linkedin.com/in/subham-acharya-783222324',
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     title: 'Medical Lab Report Assistant',
     category: 'AI-Powered Health Tool',
     description:
-      'Built a Streamlit application that lets users upload medical lab reports and automatically extracts key health parameters, flagging values outside normal reference ranges. Combined document parsing with a data-driven interpretation layer to present results in plain, easy-to-understand language for non-technical users.',
+      'Built a Streamlit application that lets users upload medical lab reports and automatically extracts key health parameters, flagging values outside normal reference ranges. Combined document parsing with AI-assisted interpretation to support faster clinical review.',
     technologies: [
       'Python',
       'Streamlit',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     title: 'SnapClass',
     category: 'AI-Powered Attendance System',
     description:
-      'Designed and built an AI-powered attendance platform using computer vision to recognize students from a class photo, together with voice biometrics for sequential roll-call verification. Implemented QR-based course enrollment and a real-time teacher dashboard.',
+      'Designed and built an AI-powered attendance platform using computer vision to recognize students from a class photo, together with voice biometrics for sequential roll-call verification. Integrated secure multi-modal authentication and a lightweight dashboard for classroom operations.',
     technologies: [
       'Python',
       'Computer Vision',
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     title: 'Smart Customer Segmentation System for E-Commerce',
     category: 'Unsupervised Machine Learning',
     description:
-      'Built and deployed an interactive tool that segments e-commerce customers into actionable groups using RFM feature engineering and K-Means clustering, validated with the Elbow Method and Silhouette Score. Applied PCA while retaining over 90% of variance to improve cluster interpretability in a live, user-facing Streamlit application.',
+      'Built and deployed an interactive tool that segments e-commerce customers into actionable groups using RFM feature engineering and K-Means clustering, validated with the Elbow Method and Silhouette Score to guide targeted marketing decisions.',
     technologies: [
       'Python',
       'Pandas',
@@ -200,16 +200,6 @@ export const certifications = [
     issuer: 'Oracle',
     year: '2025',
   },
-  {
-    title: 'Generative AI and Cloud Computing Virtual Internship',
-    issuer: 'AICTE – IBM',
-    year: '2024',
-  },
-  {
-    title: 'IoT & Entrepreneurship-cum-Skill Development Program',
-    issuer: 'Ministry of MSME, Government of India',
-    year: '2024',
-  },
 ] as const;
 
 export const exposures = [
@@ -293,26 +283,26 @@ export const faqs = [
   {
     question: 'What areas of technology do I focus on?',
     answer:
-      'I focus on AI and Machine Learning engineering. My work spans predictive modeling, deep learning architectures, computer vision, natural language processing, and deploying production-grade applications with Streamlit, FastAPI, and Flask.',
+      'I focus on AI and Machine Learning engineering. My work spans predictive modeling, deep learning architectures, computer vision, natural language processing, and deploying production-grade ML systems.',
   },
   {
     question: 'What projects have I built?',
     answer:
-      'I have built three main projects: a Medical Lab Report Assistant that parses lab reports and flags abnormal values; SnapClass, an AI attendance system using computer vision and voice biometrics; and a Smart Customer Segmentation System using RFM analysis, K-Means clustering, and PCA for e-commerce data.',
+      'I have built three main projects: a Medical Lab Report Assistant that parses lab reports and flags abnormal values; SnapClass, an AI attendance system using computer vision and voice biometrics; and a Smart Customer Segmentation System for e-commerce.',
   },
   {
     question: 'Which machine learning tools do I use?',
     answer:
-      'I primarily work with Python and the scientific stack — Pandas, NumPy, Scikit-learn, XGBoost, PyTorch, and TensorFlow for model development. For application interfaces, I use Streamlit and Flask. For MLOps, I use Git, GitHub Actions for CI/CD, and AWS for cloud deployment.',
+      'I primarily work with Python and the scientific stack — Pandas, NumPy, Scikit-learn, XGBoost, PyTorch, and TensorFlow for model development. For application interfaces, I use Streamlit and Flask.',
   },
   {
     question: 'What am I looking to learn next?',
     answer:
-      'I am keen to deepen my understanding of large language model fine-tuning, advanced MLOps practices, and building more robust end-to-end machine learning pipelines. I am also interested in exploring production-grade model serving and monitoring.',
+      'I am keen to deepen my understanding of large language model fine-tuning, advanced MLOps practices, and building more robust end-to-end machine learning pipelines. I am also interested in expanding my research and deployment experience.',
   },
   {
     question: 'How can someone contact me?',
     answer:
-      'The best way to reach me is by email at subhamacharya731@gmail.com or through LinkedIn at linkedin.com/in/subham-acharya-783222324. I am open to project collaborations, mentorship conversations, and interesting technical discussions.',
+      'The best way to reach me is by email at subhamacharya731@gmail.com or through LinkedIn at linkedin.com/in/subham-acharya-783222324. I am open to project collaborations, mentorship conversations, and technical discussions.',
   },
 ] as const;
